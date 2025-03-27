@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.vscode/
+#ignorando arquivos para mandar para o github zerado
+*.zip  
+*.pdf
+/data/pdfs/
+/data/pdfs_compactados/
