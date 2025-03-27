@@ -1,5 +1,5 @@
-from teste_conexao import testa_conexao
-from download_pdfs import baixar_pdfs
+from src.teste_conexao import testa_conexao
+from src.download_pdfs import baixar_pdfs
 
 def main():
     # URL do site para testar a conexão
