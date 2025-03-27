@@ -22,7 +22,6 @@ def baixar_pdfs(response):
         if not pdf_links:
             print("Nenhum link PDF encontrado.")
         else:
-            #retorna a quantidade de pdfs encontrados
             print(f"Encontrados {len(pdf_links)} links PDF.")
 
             #--------------------------CONVERSÃO DE LINKS RELATIVOS EM ABSOLUTOS PARA TRABALHAR COM HTTP------------------------
@@ -33,6 +32,13 @@ def baixar_pdfs(response):
                 #extraindo nome dos pdfs do links em pdf_absoluto e salvando na variável
                 nome_arquivo = os.path.join("data/pdfs", pdf_absoluto.split("/")[-1])
 
+                #--------------------------------FILTRAGEM DOS ANEXO 1 E ANEXO 2------------------------------------------------
+                #verifica se o nome do arquivo contém os anexos de interesse
+                pdf_interesse = ["Anexo_I", "Anexo_II"]
+                if not any(item in nome_arquivo for item in pdf_interesse):
+                    print(f"Arquivo {nome_arquivo} não contém os anexos de interesse. Ignorando...")
+                    continue
+                
                 #---------------------------------------------BAIXAR PDF---------------------------------------------------------
                 print(f"Baixando PDF: {nome_arquivo}") 
                 #fazendo requisição no link do pdf convertido para absoluto
