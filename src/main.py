@@ -1,5 +1,6 @@
 from teste_conexao import testa_conexao
 from download_pdfs import baixar_pdfs
+from compactar_pdfs import compactar_pdfs
 
 def main():
     # URL do site para testar a conexão
@@ -10,6 +11,7 @@ def main():
     #se a conexão for bem sucedida:
     if response:
         baixar_pdfs(response)    
+        compactar_pdfs()
 
 if __name__ == "__main__":
     main()

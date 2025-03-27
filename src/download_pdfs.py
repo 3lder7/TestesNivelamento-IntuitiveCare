@@ -26,6 +26,7 @@ def baixar_pdfs(response):
 
             #--------------------------CONVERSÃO DE LINKS RELATIVOS EM ABSOLUTOS PARA TRABALHAR COM HTTP------------------------
             for pdf_absoluto in pdf_links:
+                #conversão
                 if not pdf_absoluto.startswith("http"):
                     pdf_absoluto = requests.compat.urljoin(response, pdf_absoluto)
 
