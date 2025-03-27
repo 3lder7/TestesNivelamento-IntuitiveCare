@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup #biblioteca para trabalhar com o HTML da página
 import requests #biblioteca para requisições HTTP
 
 def baixar_pdfs(response):
-    #criação de pasta para salvar os PDFs
-    if not os.path.exists("pdfs"):
-        os.makedirs("pdfs")
+    #criação de pasta para salvar os PDFs (caso não exista)
+    if not os.path.exists("data/pdfs"):
+        os.makedirs("data/pdfs")
     try:
         #analisando conteúdo da página / beautifulsoup
         soup = BeautifulSoup(response.text, "html.parser")
@@ -31,7 +31,7 @@ def baixar_pdfs(response):
                     pdf_absoluto = requests.compat.urljoin(response, pdf_absoluto)
 
                 #extraindo nome dos pdfs do links em pdf_absoluto e salvando na variável
-                nome_arquivo = os.path.join("pdfs", pdf_absoluto.split("/")[-1])
+                nome_arquivo = os.path.join("data/pdfs", pdf_absoluto.split("/")[-1])
 
                 #---------------------------------------------BAIXAR PDF---------------------------------------------------------
                 print(f"Baixando PDF: {nome_arquivo}") 
