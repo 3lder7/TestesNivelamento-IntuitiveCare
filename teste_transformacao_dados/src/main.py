@@ -8,9 +8,9 @@ def main():
     #PROCESSAMENTO
     print(f"Extraindo dados de {caminho_pdf}...")
     dados = extrair_tabela(caminho_pdf) #extrai a tabela do pdf
+    dados.to_csv(arquivo_saida, index=False, sep= ';', encoding='utf-8-sig')#salva em uma tabela estruturada
 
     #SAÍDA
-    dados.to_csv(arquivo_saida, index=False, encoding='utf-8-sig')
     print(f"Dados salvos em {arquivo_saida}")
     print(f"Total de registros: {len(dados)}")
 

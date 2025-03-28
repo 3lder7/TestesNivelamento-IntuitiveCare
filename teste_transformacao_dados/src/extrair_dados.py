@@ -8,7 +8,7 @@ def extrair_tabela (caminho_pdf):
         for pagina in pdf.pages:
             tabelas = pagina.extract_tables() #extrai as tabelas da página com função do pdfplumber
 
-            #-------------esse bloco foi gerado 100% com IA, não entendi como funciona muito bem----------------
+            #-------------esse bloco foi gerado 100% com IA, e não entendi como funciona muito bem----------------
             for tabela in tabelas:
                 for linha in tabela:
                     #pula linhas vazias ou cabeçalhos repetidos
@@ -23,8 +23,8 @@ def extrair_tabela (caminho_pdf):
         "HSO", "REF", "PAC", "DUT", "SUBGRUPO", "GRUPO", "CAPÍTULO"
     ]
 
-    #criação do dataframe para organizar as informações em linhas e colunas
-    #e preparar os dados para serem transformados em um arquivo csv com pandas
+    #---------------------CRIAÇÃO DO DATAFRAME PARA A TABELA-------------------------------
+    #preparar os dados para serem transformados em um arquivo csv com pandas
     df = pd.DataFrame(linhas_da_tabela, columns=colunas)
     #remove linhas completamente vazias
     df = df.dropna(how='all')
