@@ -24,7 +24,7 @@ def extrair_tabela (caminho_pdf):
     ]
 
     #criação do dataframe para organizar as informações em linhas e colunas
-    #e preparar os dados para serem transformados em um arquivo csv
+    #e preparar os dados para serem transformados em um arquivo csv com pandas
     df = pd.DataFrame(linhas_da_tabela, columns=colunas)
     #remove linhas completamente vazias
     df = df.dropna(how='all')
