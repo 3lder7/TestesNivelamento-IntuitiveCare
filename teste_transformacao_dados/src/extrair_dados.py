@@ -31,4 +31,10 @@ def extrair_tabela (caminho_pdf):
     df = pd.DataFrame(linhas_da_tabela, columns=colunas)
     #remove linhas completamente vazias
     df = df.dropna(how='all')
+
+    #----------------------SUBSTITUIR ABREVIAÇÕES POR NOME COMPLETO------------------------
+    #----------------não sei como funciona, mas o código foi gerado com IA e parece funcionar-----------------------
+    df['OD'] = df['OD'].apply(lambda x: 'Seg. Odontológica' if pd.notna(x) and x.strip() == 'OD' else x)
+    df['AMB'] = df['AMB'].apply(lambda x: 'Seg. Ambulatorial' if pd.notna(x) and x.strip() == 'AMB' else x)
+    #----------------------------------------------------------------------------------------------------------------
     return df
