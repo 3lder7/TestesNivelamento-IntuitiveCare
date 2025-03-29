@@ -1,9 +1,12 @@
 import pdfplumber #manipulação de pdf
 import pandas as pd #manipulação de dados
+import os #biblioteca para interação com o sistema operacional (criar a a pasta data)
 
 def extrair_tabela (caminho_pdf):
     linhas_da_tabela = [] #lista que armazena as linhas da tabela
-
+    if not os.path.exists("data"): #verifica se a pasta data existe
+        os.makedirs("data")
+        
     with pdfplumber.open(caminho_pdf) as pdf: #abre o pdf
         for pagina in pdf.pages:
             tabelas = pagina.extract_tables() #extrai as tabelas da página com função do pdfplumber

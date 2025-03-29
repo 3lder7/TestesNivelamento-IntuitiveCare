@@ -11,14 +11,14 @@ def main():
     print(f"Extraindo dados de {caminho_pdf}...")
     dados = extrair_tabela(caminho_pdf)  # extrai a tabela do PDF
     dados.to_csv(arquivo_saida, index=False, sep=';', encoding='utf-8-sig')  # salva em uma tabela estruturada
-    print(f"Dados salvos em {arquivo_saida}")
-
+    
     print("Compactando arquivo...")
     compactando_csv(arquivo_saida, arquivo_zip)  # compacta o arquivo CSV
-    print(f"Arquivo compactado em {arquivo_zip}")
-
+    
     # SAÍDA
     print(f"Total de registros: {len(dados)}")
+    print(f"Dados salvos em {arquivo_saida}")
+    print(f"Arquivo compactado em {arquivo_zip}")
 
 if __name__ == "__main__":
     main()
