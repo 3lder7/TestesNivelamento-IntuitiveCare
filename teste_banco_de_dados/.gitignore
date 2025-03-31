@@ -1,0 +1,6 @@
+venv/  
+.env  
+*.sql~  
+*.sql.bak  
+*.sql-journal  
+.vscode/
