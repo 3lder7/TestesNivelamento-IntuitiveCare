@@ -15,6 +15,7 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
+#-------------UTILIZANDO IA PARA TRATAR OS DADOS------------------
 #ler o arquivo CSV
 df = pd.read_csv('Relatorio_cadop.csv', delimiter=';')  
 
@@ -22,6 +23,7 @@ df = pd.read_csv('Relatorio_cadop.csv', delimiter=';')
 df['DDD'] = df['DDD'].astype(str).str[:2]
 # Tratar os valores de Numero para garantir que tenham no máximo 10 caracteres
 df['Numero'] = df['Numero'].astype(str).str[:10]
+#---------------------------------------------------------------------------
 
 #inserir os dados na tabela operadoras_ativas
 for _, row in df.iterrows():

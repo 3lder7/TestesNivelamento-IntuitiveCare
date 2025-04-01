@@ -1,5 +1,7 @@
-
-
+#DECIDI TRABALHAR COM A BIBLIOTECA PANDAS PARA LER O ARQUIVO .CSV E PASSAR PARA O BANCO DE DADOS
+#POIS USANDO DIRETAMENTE O COMANDO SQL ''LOAD DATA INFILE'' NÃO FUNCIONAOU DE JEITO NENHUM
+#TERIA QUE FAZER ALTERAÇÕES NOS ARQUIVOS DO MYSQL SERVER
+#E EU QUERO TENTAR DEIXAR O PROJETO O MAIS PRÁTICO POSSÍVEL
 import pandas as pd
 import mysql.connector
 
@@ -12,8 +14,14 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()#criar um cursor para executar comandos SQL
 
+#-------------UTILIZANDO IA PARA TRATAR OS DADOS------------------
 #ler o arquivo CSV
 df = pd.read_csv('2023/1T2023.csv', delimiter=';', quotechar='"')
+
+# Substituir vírgulas por pontos nas colunas de valores decimais
+df['VL_SALDO_INICIAL'] = df['VL_SALDO_INICIAL'].astype(str).str.replace(',', '.').astype(float)
+df['VL_SALDO_FINAL'] = df['VL_SALDO_FINAL'].astype(str).str.replace(',', '.').astype(float)
+#-----------------------------------------------------------------
 
 #inserir os dados na tabela
 for _, row in df.iterrows():

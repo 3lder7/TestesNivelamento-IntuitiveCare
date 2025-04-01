@@ -34,3 +34,4 @@ CREATE TABLE demonstracoes_1T2023(
     VL_SALDO_FINAL DECIMAL(15, 2),    
     FOREIGN KEY (REG_ANS) REFERENCES operadoras_ativas(Registro_ANS)  -- chave estrangeira para a tabela de operadoras ativas
 );
+
