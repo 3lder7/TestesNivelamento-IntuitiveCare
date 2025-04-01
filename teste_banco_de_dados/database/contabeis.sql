@@ -14,7 +14,7 @@ CREATE TABLE demonstracoes_1T2023(
 /*----------------IMPORTANDO CSV----------------*/
 LOAD DATA LOCAL INFILE 'C:/Users/elder/Downloads/TestesNivelamento-IntuitiveCare/teste_banco_de_dados/2023/1T2023.csv' -- inserir dados do csv nas colunas
 INTO TABLE demonstracoes_1T2023
-FIELDS TERMINATED BY ',' -- delimitador
+FIELDS TERMINATED BY ';' -- delimitador
 ENCLOSED BY '"' -- ler os valores entre aspas
 LINES TERMINATED BY '\n' -- pula linha
 IGNORE 1 LINES -- pra ignorar o cabeçalho
