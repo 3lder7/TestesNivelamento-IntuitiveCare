@@ -3,7 +3,7 @@ from compactar_csv import compactando_csv
 
 def main():
     # ENTRADA
-    caminho_pdf = "../teste_webscraping/data/pdfs/Anexo_I_Rol_2021RN_465.2021_RN627L.2024.pdf"  # caminho do PDF
+    caminho_pdf = "data/pdfs/Anexo_I_Rol_2021RN_465.2021_RN627L.2024.pdf"  # caminho do PDF
     arquivo_saida = "data/tabela.csv"  # caminho do arquivo de saída
     arquivo_zip = "data/tabela.zip"  # caminho do arquivo compactado
 
